@@ -5,8 +5,7 @@ namespace Roots\Sage\Nav;
 use Roots\Sage\Utils;
 
 /**
- * Soil Nav Walker
- * @url https://github.com/roots/soil
+ *
  *
  * Cleaner walker for wp_nav_menu()
  *
