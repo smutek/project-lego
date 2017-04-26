@@ -1,6 +1,14 @@
-# [Sage](https://roots.io/sage/)
+# Project Lego 
+
+Starter theme, built with [Sage](https://roots.io/sage/) 8.5.1 by the development team at [Ainsley & Co.](https://ainsleyagency.com)
+
+## Extras
+
+
 [![Build Status](https://travis-ci.org/roots/sage.svg)](https://travis-ci.org/roots/sage)
 [![devDependency Status](https://david-dm.org/roots/sage/dev-status.svg)](https://david-dm.org/roots/sage#info=devDependencies)
+
+## Sage
 
 Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
 
@@ -11,7 +19,7 @@ Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and B
 * Newsletter: [Subscribe](http://roots.io/subscribe/)
 * Forum: [https://discourse.roots.io/](https://discourse.roots.io/)
 
-## Requirements
+### Requirements
 
 | Prerequisite    | How to check | How to install
 | --------------- | ------------ | ------------- |
@@ -22,7 +30,7 @@ Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and B
 
 For more installation notes, refer to the [Install gulp and Bower](#install-gulp-and-bower) section in this document.
 
-## Features
+### Features
 
 * [gulp](http://gulpjs.com/) build script that compiles both Sass and Less, checks for JavaScript errors, optimizes images, and concatenates and minifies files
 * [BrowserSync](http://www.browsersync.io/) for keeping multiple browsers and devices synchronized while testing, along with injecting updated CSS and JS into your browser while you're developing
@@ -45,28 +53,16 @@ Install the [Soil](https://github.com/roots/soil) plugin to enable additional fe
 
 See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
 
-## Theme installation
 
-Install Sage by copying the project into a new folder within your WordPress themes directory.
-
-Make sure [Composer](https://getcomposer.org/download/) has been installed before moving on.
-
-Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
-
-```shell
-# @ example.com/site/web/app/themes/
-$ composer create-project roots/sage your-theme-name 8.5.1
-```
-
-## Theme setup
+### Theme setup
 
 Edit `lib/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, post formats, and sidebars.
 
-## Theme development
+### Theme development
 
 Sage uses [gulp](http://gulpjs.com/) as its build system and [Bower](http://bower.io/) to manage front-end packages.
 
-### Install gulp and Bower
+#### Install gulp and Bower
 
 Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of npm: `npm install -g npm@latest`.
 
@@ -78,13 +74,13 @@ From the command line:
 
 You now have all the necessary dependencies to run the build process.
 
-### Available gulp commands
+#### Available gulp commands
 
 * `gulp` — Compile and optimize the files in your assets directory
 * `gulp watch` — Compile assets when file changes are made
 * `gulp --production` — Compile assets for production (no source maps).
 
-### Using BrowserSync
+#### Using BrowserSync
 
 To use BrowserSync during `gulp watch` you need to update `devUrl` at the bottom of `assets/manifest.json` to reflect your local development hostname.
 
@@ -105,15 +101,15 @@ If your local development URL looks like `http://localhost:8888/project-name/` y
 ...
 ```
 
-## Documentation
+### Documentation
 
 Sage documentation is available at [https://roots.io/sage/docs/](https://roots.io/sage/docs/).
 
-## Contributing
+### Contributing
 
 Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
 
-## Community
+### Community
 
 Keep track of development and community news.
 
