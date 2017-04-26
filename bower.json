@@ -7,6 +7,22 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap": "git://github.com/twbs/bootstrap.git#v4.0.0-alpha.6"
+    "bootstrap": "git://github.com/twbs/bootstrap.git#v4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
+    "slick-carousel": "^1.6.0"
+  },
+  "overrides": {
+    "slick-carousel": {
+      "main": [
+        "./slick/slick.js",
+        "./slick/slick.css"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "./scss/font-awesome.scss",
+        "./fonts/*"
+      ]
+    }
   }
 }
