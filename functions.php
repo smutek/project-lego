@@ -18,6 +18,7 @@ $sage_includes = [
   'lib/customizer.php', // Theme customizer
   'lib/walker.php',     // Nav walker
   'lib/utils.php',      // Utility functions
+  'lib/controllers.php',// Controllers
 ];
 
 foreach ($sage_includes as $file) {
