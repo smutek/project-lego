@@ -7,12 +7,132 @@ use Roots\Sage\Assets;
 /**
  * Add postMessage support
  */
-function customize_register($wp_customize) {
-  $wp_customize->get_setting('blogname')->transport = 'postMessage';
+function customize_register( $wp_customize ) {
+  $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 }
-add_action('customize_register', __NAMESPACE__ . '\\customize_register');
+
+add_action( 'customize_register', __NAMESPACE__ . '\\customize_register' );
 
 function theme_options( $wp_customize ) {
+
+  /*
+  * *********** Secondary Logo
+  */
+
+  // secondary logo upload
+  $wp_customize->add_setting( 'secondary_logo', [
+    'sanitize_callback' => 'esc_url'
+  ] );
+  $wp_customize->add_control(
+    new\WP_Customize_Image_Control(
+      $wp_customize,
+      'secondary_logo_control', [
+        'label'       => __( 'Secondary Logo', 'sage' ),
+        'section'     => 'title_tagline',
+        'description' => sprintf( __( 'Secondary logo, displays in the footer.', 'sage' ) ),
+        'settings'    => 'secondary_logo',
+        'priority'    => 20,
+      ]
+    )
+  );
+  // secondary logo link
+  $wp_customize->add_setting( 'secondary_logo_link', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_url'
+  ] );
+  $wp_customize->add_control( 'secondary_logo_link', [
+    'label'       => __( 'Secondary Logo Link', 'sage' ),
+    'description' => __( 'URL for the secondary logo to link to. Leave blank for no link.', 'sage' ),
+    'section'     => 'title_tagline',
+    'settings'    => 'secondary_logo_link',
+    'type'        => 'text',
+    'priority'    => 20,
+  ] );
+
+  /*
+ * ****** Site Info Section *******
+ */
+  $wp_customize->add_section( 'business_info', [
+    'priority'    => 20,
+    'capability'  => 'edit_theme_options',
+    'title'       => __( 'Business Info', 'sage' ),
+    'description' => sprintf( __( 'Business info, such as phone, fax, address, etc.', 'sage' ) )
+  ] );
+  /*
+   * *********** Company name
+   */
+  $wp_customize->add_setting( 'business_name', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'business_name_control', [
+    'label'    => __( 'Business Name', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'business_name',
+    'type'     => 'text'
+  ] );
+  /*
+   * *********** Phone
+   */
+  $wp_customize->add_setting( 'phone_setting', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'phone_control', [
+    'label'    => __( 'Phone Number', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'phone_setting',
+    'type'     => 'text'
+  ] );
+  /*
+  * *********** Fax
+  */
+  $wp_customize->add_setting( 'fax_setting', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'fax_control', [
+    'label'    => __( 'Fax Number', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'fax_setting',
+    'type'     => 'text'
+  ] );
+  /*
+  * *********** Email
+  */
+  $wp_customize->add_setting( 'email_setting', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'email_control', [
+    'label'    => __( 'Site Email', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'email_setting',
+    'type'     => 'text'
+  ] );
+  /*
+  ************ Address
+  */
+  $wp_customize->add_setting( 'address_line_1', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'address_1_control', [
+    'label'    => __( 'Address Line 1', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'address_line_1',
+    'type'     => 'text'
+  ] );
+  $wp_customize->add_setting( 'address_line_2', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'address_2_control', [
+    'label'    => __( 'Address Line 2', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'address_line_2',
+    'type'     => 'text'
+  ] );
 
   /*
   * ****** Miscellaneous Section *******
@@ -89,12 +209,14 @@ function theme_options( $wp_customize ) {
   ] );
 
 }
-add_action('customize_register', __NAMESPACE__ . '\\theme_options');
+
+add_action( 'customize_register', __NAMESPACE__ . '\\theme_options' );
 
 /**
  * Customizer JS
  */
 function customize_preview_js() {
-  wp_enqueue_script('sage/customizer', Assets\asset_path('scripts/customizer.js'), ['customize-preview'], null, true);
+  wp_enqueue_script( 'sage/customizer', Assets\asset_path( 'scripts/customizer.js' ), [ 'customize-preview' ], null, true );
 }
-add_action('customize_preview_init', __NAMESPACE__ . '\\customize_preview_js');
+
+add_action( 'customize_preview_init', __NAMESPACE__ . '\\customize_preview_js' );
