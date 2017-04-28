@@ -12,6 +12,13 @@ function customize_register($wp_customize) {
 }
 add_action('customize_register', __NAMESPACE__ . '\\customize_register');
 
+function theme_options( $wp_customize ) {
+
+
+
+}
+add_action('theme_options', __NAMESPACE__ . '\\theme_options');
+
 /**
  * Customizer JS
  */
