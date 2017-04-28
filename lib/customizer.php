@@ -14,10 +14,82 @@ add_action('customize_register', __NAMESPACE__ . '\\customize_register');
 
 function theme_options( $wp_customize ) {
 
+  /*
+  * ****** Miscellaneous Section *******
+  */
+  $wp_customize->add_section( 'misc_settings', [
+    'priority'   => 25,
+    'capability' => 'edit_theme_options',
+    'title'      => __( 'Miscellaneous', 'sage' )
+  ] );
 
+  // Hide Show ACF (if ACF is active)
+  if ( class_exists( 'acf' ) ) :
+
+    $wp_customize->add_setting( 'acf_visibility', array(
+      'default' => 'show'
+    ) );
+    $wp_customize->add_control( 'acf_visibility', array(
+      'type'     => 'radio',
+      'section'  => 'misc_settings',
+      'settings' => 'acf_visibility',
+      'label'    => __( 'Hide / Show the ACF menu' ),
+      'choices'  => array(
+        'hide' => __( 'Hide' ),
+        'show' => __( 'Show' ),
+      ),
+    ) );
+
+  endif;
+
+  $wp_customize->add_setting( 'tracking_type', array(
+    'default' => 'none'
+  ) );
+  $wp_customize->add_control( 'tracking_type', array(
+    'type'     => 'radio',
+    'section'  => 'misc_settings',
+    'settings' => 'tracking_type',
+    'label'    => __( 'Tracking Type' ),
+    'choices'  => array(
+      'none' => __( 'None' ),
+      'gtm'  => __( 'Google Tag Manager' ),
+      'ga'   => __( 'Google Analytics' ),
+    ),
+  ) );
+  $wp_customize->add_setting( 'gtm_id', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'gtm_id', [
+    'label'    => __( 'Google Tag Manager ID', 'sage' ),
+    'section'  => 'misc_settings',
+    'settings' => 'gtm_id',
+    'type'     => 'text'
+  ] );
+  $wp_customize->add_setting( 'ga_id', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'ga_id', [
+    'label'    => __( 'Google Analytics ID', 'sage' ),
+    'section'  => 'misc_settings',
+    'settings' => 'ga_id',
+    'type'     => 'text'
+  ] );
+
+  $wp_customize->add_setting( 'google_maps_api_key', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'google_maps_api_key', [
+    'label'    => __( 'Google Maps API Key', 'sage' ),
+    'section'  => 'misc_settings',
+    'settings' => 'google_maps_api_key',
+    'type'     => 'text'
+  ] );
 
 }
-add_action('theme_options', __NAMESPACE__ . '\\theme_options');
+add_action('customize_register', __NAMESPACE__ . '\\theme_options');
 
 /**
  * Customizer JS

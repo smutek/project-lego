@@ -106,3 +106,56 @@ function assets() {
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+/**
+ * Add the SVG Mime type to the uploader
+ * @author Alain Schlesser (alain.schlesser@gmail.com)
+ * @link https://gist.github.com/schlessera/1eed8503110fb3076e73
+ *
+ * @param  array $mimes list of mime types that are allowed by the
+ * WordPress uploader
+ *
+ * @return array modified version of the $mimes array
+ *
+ * @see https://codex.wordpress.org/Plugin_API/Filter_Reference/upload_mimes
+ * @see http://www.w3.org/TR/SVG/mimereg.html
+ */
+function add_svg_mime_type( $mimes ) {
+  // add official SVG mime type definition to the array of allowed mime types
+  $mimes['svg'] = 'image/svg+xml';
+  // return the modified array
+  return $mimes;
+}
+add_filter( 'upload_mimes', __NAMESPACE__ . '\\add_svg_mime_type' );
+
+
+/**
+ * Admin Styles
+ *
+ * Add styles to the admin area. Helps with visual clutter on ACF fields,
+ * viewing SVG in media loader, etc.
+ */
+function admin_styles() {
+  ob_start();
+  include(locate_template('templates/modules/admin-styles.php'));
+  $output = ob_get_clean();
+  echo $output;
+}
+add_action('admin_head', __NAMESPACE__ . '\\admin_styles');
+add_action( 'customize_controls_print_styles', __NAMESPACE__ . '\\admin_styles' );
+
+/**
+ * ACF Admin Access Control
+ *
+ * Hide / Show the ACF menu.
+ *
+ * Hides the ACF menu via a radio button tucked away in customizer.
+ * Out of sight, out of mind.
+ *
+ * @return bool
+ */
+function acf_admin_control() {
+  get_theme_mod('acf_visibility') === 'show' ? $return = true : $return = false;
+  return $return;
+}
+add_filter('acf/settings/show_admin', __NAMESPACE__ . '\\acf_admin_control');
