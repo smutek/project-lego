@@ -198,3 +198,22 @@ function google_analytics_head() {
 }
 
 add_action( 'wp_head', __NAMESPACE__ . '\\google_analytics_head' );
+
+/**
+ * Google Maps API Key
+ *
+ * Set up Google API key to use with ACF maps
+ */
+function acf_google_api_key() {
+
+  $api_key = "";
+
+  if ( get_theme_mod( 'google_api_key' ) ) {
+    $api_key = get_theme_mod( 'google_api_key' );
+  }
+
+  acf_update_setting( 'google_api_key', $api_key );
+
+}
+
+add_action( 'acf/init', __NAMESPACE__ . '\\acf_google_api_key' );

@@ -197,14 +197,14 @@ function theme_options( $wp_customize ) {
     'type'     => 'text'
   ] );
 
-  $wp_customize->add_setting( 'google_maps_api_key', [
+  $wp_customize->add_setting( 'google_api_key', [
     'default'           => '',
     'sanitize_callback' => 'sanitize_text_field'
   ] );
-  $wp_customize->add_control( 'google_maps_api_key', [
+  $wp_customize->add_control( 'google_api_key', [
     'label'    => __( 'Google Maps API Key', 'sage' ),
     'section'  => 'misc_settings',
-    'settings' => 'google_maps_api_key',
+    'settings' => 'google_api_key',
     'type'     => 'text'
   ] );
 
