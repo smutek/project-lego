@@ -1,4 +1,5 @@
 <?php
+
 namespace Roots\Sage\Controllers\Branding;
 
 /**
@@ -7,6 +8,11 @@ namespace Roots\Sage\Controllers\Branding;
  * Use native WordPress site logo with custom (bootstrap friendly) markup
  * Falls back to text title if logo is not set.
  *
+ * @param $html
+ *
+ * @return string
+ */
+/**
  * @param $html
  *
  * @return string
@@ -52,10 +58,11 @@ add_filter( 'get_custom_logo', __NAMESPACE__ . '\\site_brand' );
  *
  * @return string
  */
-function footer_logo($classes = null) {
+function footer_logo( $classes = null ) {
 
-  if(!is_array($classes))
-    $classes = [$classes];
+  if ( ! is_array( $classes ) ) {
+    $classes = [ $classes ];
+  }
 
   $classes[] = 'footer-logo';
 
@@ -69,10 +76,42 @@ function footer_logo($classes = null) {
 
     $logo_url = get_theme_mod( $logo );
 
-    $html = sprintf( '<img src="%1$s" class="%2$s" alt="%3$s">', $logo_url, implode(" ", $classes), $site );
+    $html = sprintf( '<img src="%1$s" class="%2$s" alt="%3$s">', $logo_url, implode( " ", $classes ), $site );
   }
 
   // setup the markup
 
   return $html;
+}
+
+
+/**
+ * Social navigation args
+ *
+ * Tidy up front end markup.
+ * Use the arg to pass classes to the nav UL
+ *
+ * @param null $classes  // array or strong of class names
+ *
+ * @return array
+ */
+function social_nav( $classes = null ) {
+
+  if ( ! is_array( $classes ) ) {
+    $classes = [ $classes ];
+  }
+
+  $classes[] = 'nav nav-social';
+
+  $menu_class = implode( " ", $classes );
+
+  $args = [
+    'theme_location' => 'social_navigation',
+    'menu_class'     => $menu_class,
+    'link_before'    => '<span class="sr-only">',
+    'link_after'     => '</span>'
+  ];
+
+  return $args;
+
 }

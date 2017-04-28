@@ -1,5 +1,6 @@
 .content-info {
   @extend .bg-inverse;
+  color: $white;
   padding: $jumbotron-padding 0;
   // stick footer to bottom when not enough content
   position: absolute;
@@ -9,5 +10,4 @@
   .footer-logo {
     width: 150px;
   }
-
 }
