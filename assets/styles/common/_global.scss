@@ -1,3 +1,7 @@
 .wrap {
   padding-top: 2rem;
 }
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+}
