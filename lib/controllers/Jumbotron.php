@@ -2,13 +2,13 @@
 
 namespace Roots\Sage\Controllers\Jumbotron;
 
+use Roots\Sage\Controllers\Modal\Modal;
 use Roots\Sage\Wrapper\SageWrapping;
 
 /**
  * Class Jumbotron
  * @package Roots\Sage\Controllers\Jumbotron
  */
-
 class Jumbotron {
 
   /**
@@ -44,12 +44,26 @@ class Jumbotron {
 
     $background = false;
 
-    if( get_field( 'jumbotron_background_image', $postID )) {
-      $url = get_field( 'jumbotron_background_image', $postID);
+    if ( get_field( 'jumbotron_background_image', $postID ) ) {
+      $url = get_field( 'jumbotron_background_image', $postID );
 
       $background = " style=\"background: url({$url});\"";
 
     }
+
+    if( get_field( 'jumbotron_use_modal' )) {
+
+      $trigger_text = get_field( 'jumbotron_modal_button_text', $postID );
+      $modal_id = 'modal-' . $postID;
+      $trigger = sprintf( '<a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#%1$s">%2$s</a>', $modal_id,  $trigger_text );
+
+      $ctaButton = $jumbotron['button'];
+
+      $jumbotron['button'] = $trigger;
+
+      new Modal($this->postID, 'jumbotron', $ctaButton);
+    }
+
 
     $jumbotron['background'] = $background;
 
@@ -64,7 +78,7 @@ class Jumbotron {
    */
   public function jumbotronButton() {
 
-    $postID    = $this->postID;
+    $postID = $this->postID;
 
     $button = false;
 
@@ -73,14 +87,16 @@ class Jumbotron {
       return $button;
     }
 
-    $button_text   = get_field( 'jumbotron_button_text', $postID );
-    $target = get_field( 'jumbotron_link_target', $postID );
+    $button_text = get_field( 'jumbotron_button_text', $postID );
+    $link_type   = get_field( 'jumbotron_link_type', $postID );
+    $target      = get_field( 'jumbotron_link_target', $postID );
 
-    if ( get_field( 'jumbotron_link_type', $postID ) === 'internal' ) {
+    if ( $link_type === 'internal' ) {
       $link = get_field( 'jumbotron_internal_link', $postID );
     } else {
       $link = get_field( 'jumbotron_custom_link', $postID );
     }
+
 
     $button = sprintf( '<a href="%1$s" class="btn btn-primary btn-lg" target="%2$s">%3$s</a>', $link, $target, $button_text );
 

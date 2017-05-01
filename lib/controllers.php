@@ -8,6 +8,7 @@ $controllers = [
   'lib/controllers/branding-controller.php', // Logos and business info
   'lib/controllers/business-info-controller.php', // Site info
   'lib/controllers/Jumbotron.php', // Jumbotron class
+  'lib/controllers/Modal.php', // Base modal class
 ];
 
 foreach ( $controllers as $controller ) {
