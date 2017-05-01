@@ -1,6 +1,6 @@
 <?php
 use Roots\Sage\Controllers\Branding;
-$social_args = Branding\social_nav('flex-column');
+$social_args = Branding\social_nav('stack circle brand');
 ?>
 <footer class="content-info">
   <div class="container">
@@ -26,6 +26,5 @@ $social_args = Branding\social_nav('flex-column');
       <?php endif; ?>
 
     </div>
-
   </div>
 </footer>

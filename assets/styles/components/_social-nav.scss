@@ -1,9 +1,16 @@
 /* Social Media */
+
+// set the icon size here
+$link_size: 16px;
+$spacing_size: 15px;
+$link_color: $link-color !default;
+
 .social-nav {
 
   li {
 
     a {
+      font-size: $link_size;
 
       &::before {
         display: inline-block;
@@ -11,6 +18,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: '\f0c0';
+        font-size: 1.25em;
       }
     }
     // end a
@@ -83,6 +91,59 @@
 
 .social-nav li a[href*="feedburner.com"]::before {
   content: '\f143';
+}
+
+/******************************************************************************
+========================> Stacking
+*******************************************************************************/
+
+.social-nav .stack {
+
+  margin-top: $spacing_size;
+
+  li + li {
+    margin-left: $spacing_size;
+  }
+
+  a {
+    color: $white;
+    position: relative;
+    width: $link_size;
+    height: $link_size;
+    padding: $link_size;
+    z-index: 3;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 50%;
+      margin-top: -($link_size/2);
+      left: 0;
+      line-height: $link_size;
+    }
+
+    &::before {
+      @extend .fa-stack-1x;
+      z-index: 2;
+      font-size: 1.25em;
+    }
+    &::after {
+      font-family: FontAwesome;
+      color: $brand-primary;
+      z-index: 1;
+      @extend .fa-stack-2x;
+      font-size: 2em;
+    }
+  }
+  &.circle a::after {
+    content: '\f111';
+  }
+  &.square a::after {
+    content: '\f0c8';
+  }
+  &.single-color a::after {
+    color: $link-color;
+  }
 }
 
 /******************************************************************************
@@ -263,70 +324,238 @@ $colorMap: (
   zendesk: $zendesk
 );
 
-@each $className, $classValue in $colorMap {
-  .#{$className} {
-    color: $classValue;
-  }
-}
+//@each $className, $classValue in $colorMap {
+//  .#{$className} {
+//    &::after {
+//      color: $classValue;
+//    }
+//    color: $classValue;
+//  }
+//}
 
 /* End Social Media */
 
-.social-nav li a[href*="facebook.com"]::after {
-  color: $facebook;
+.social-nav .brand {
+  li a[href*="facebook.com"]::before {
+    color: $facebook;
+  }
+  &.stack {
+    li a[href*="facebook.com"]::after {
+      color: $facebook;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="twitter.com"]::after {
-  color: $twitter;
+.social-nav .brand {
+  li a[href*="twitter.com"]::before {
+    color: $twitter;
+  }
+  &.stack {
+    li a[href*="twitter.com"]::after {
+      color: $twitter;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="dribbble.com"]::after {
-  color: $dribbble;
+.social-nav .brand {
+  li a[href*="dribbble.com"]::before {
+    color: $dribbble;
+  }
+  &.stack {
+    li a[href*="dribbble.com"]::after {
+      color: $dribbble;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="plus.google.com"]::after {
-  color: $googleplus;
+.social-nav .brand {
+  li a[href*="plus.google.com"]::before {
+    color: $googleplus;
+  }
+  &.stack {
+    li a[href*="plus.google.com"]::after {
+      color: $googleplus;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="pinterest.com"]::after {
-  color: $pinterest;
+.social-nav .brand {
+  li a[href*="pinterest.com"]::before {
+    color: $pinterest;
+  }
+  &.stack {
+    li a[href*="pinterest.com"]::after {
+      color: $pinterest;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="github.com"]::after {
-  color: $github;
+.social-nav .brand {
+  li a[href*="github.com"]::before {
+    color: $github;
+  }
+  &.stack {
+    li a[href*="github.com"]::after {
+      color: $github;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="tumblr.com"]::after {
-  color: $tumblr;
+.social-nav .brand {
+  li a[href*="tumblr.com"]::before {
+    color: $tumblr;
+  }
+  &.stack {
+    li a[href*="tumblr.com"]::after {
+      color: $tumblr;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="youtube.com"]::after {
-  color: $youtube;
+.social-nav .brand {
+  li a[href*="youtube.com"]::before {
+    color: $youtube;
+  }
+  &.stack {
+    li a[href*="youtube.com"]::after {
+      color: $youtube;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="flickr.com"]::after {
-  color: $flickr;
+.social-nav .brand {
+  li a[href*="flickr.com"]::before {
+    color: $flickr;
+  }
+  &.stack {
+    li a[href*="flickr.com"]::after {
+      color: $flickr;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="vimeo.com"]::after {
-  color: $vimeo;
+.social-nav .brand {
+  li a[href*="vimeo.com"]::before {
+    color: $vimeo;
+  }
+  &.stack {
+    li a[href*="vimeo.com"]::after {
+      color: $vimeo;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="instagram.com"]::after {
-  color: $instagram;
+.social-nav .brand {
+  li a[href*="instagram.com"]::before {
+    color: $instagram;
+  }
+  &.stack {
+    li a[href*="instagram.com"]::after {
+      color: $instagram;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="linkedin.com"]::after {
-  color: $instagram;
+.social-nav .brand {
+  li a[href*="linkedin.com"]::before {
+    color: $instagram;
+  }
+  &.stack {
+    li a[href*="linkedin.com"]::after {
+      color: $instagram;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="codepen"]::after {
-  color: $facebook;
+.social-nav .brand {
+  li a[href*="codepen"]::before {
+    color: $facebook;
+  }
+  &.stack {
+    li a[href*="codepen"]::after {
+      color: $facebook;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="wordpress.org"]::after {
-  color: $wordpress;
+.social-nav .brand {
+  li a[href*="wordpress.org"]::before {
+    color: $wordpress;
+  }
+  &.stack {
+    li a[href*="wordpress.org"]::after {
+      color: $wordpress;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
 
-.social-nav li a[href*="feedburner.com"]::after {
-  color: $white;
+.social-nav .brand {
+  li a[href*="feedburner.com"]::before {
+    color: $white;
+  }
+  &.stack {
+    li a[href*="feedburner.com"]::after {
+      color: $white;
+    }
+    li a::before {
+      color: $white;
+    }
+  }
+
 }
