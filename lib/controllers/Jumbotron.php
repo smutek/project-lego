@@ -6,12 +6,6 @@ use Roots\Sage\Wrapper\SageWrapping;
 
 class Jumbotron {
 
-  public static function init() {
-    $class = __CLASS__;
-    new $class;
-  }
-
-
   public function __construct( $postID ) {
 
     $this->postID = $postID;
