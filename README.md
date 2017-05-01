@@ -4,6 +4,7 @@ Starter theme, built with [Sage](https://roots.io/sage/) 8.5.1 by the developmen
 
 ## Extras
 
+- Holder.js for prototyping. Generate placeholders with `<img src="holder.js/300x200">`
 - Slick Carousel
 - Customizer Options
     - Option 1
