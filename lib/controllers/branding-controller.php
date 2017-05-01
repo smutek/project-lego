@@ -115,3 +115,17 @@ function social_nav( $classes = null ) {
   return $args;
 
 }
+
+
+/**
+ * Site copyright notice
+ *
+ * @return string
+ */
+function copyright() {
+  $businessName = get_theme_mod( 'business_name' );
+  ! empty( $businessName ) ? $name = $businessName : $name = get_bloginfo( 'name' );
+  $output = '&copy; ' . date( 'Y' ) . ' ' . $name;
+
+  return $output;
+}

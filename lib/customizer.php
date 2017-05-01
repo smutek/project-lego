@@ -133,6 +133,16 @@ function theme_options( $wp_customize ) {
     'settings' => 'address_line_2',
     'type'     => 'text'
   ] );
+  $wp_customize->add_setting( 'address_line_3', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_text_field'
+  ] );
+  $wp_customize->add_control( 'address_3_control', [
+    'label'    => __( 'City, State, Zip', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'address_line_3',
+    'type'     => 'text'
+  ] );
 
   /*
   * ****** Miscellaneous Section *******
