@@ -4,8 +4,18 @@ namespace Roots\Sage\Controllers\Jumbotron;
 
 use Roots\Sage\Wrapper\SageWrapping;
 
+/**
+ * Class Jumbotron
+ * @package Roots\Sage\Controllers\Jumbotron
+ */
+
 class Jumbotron {
 
+  /**
+   * Jumbotron constructor.
+   *
+   * @param $postID
+   */
   public function __construct( $postID ) {
 
     $this->postID = $postID;
@@ -14,6 +24,13 @@ class Jumbotron {
 
   }
 
+  /**
+   * Jumbotron Content
+   *
+   * Generates content for the jumbotron
+   *
+   * @return array of string values
+   */
   public function jumbotronContent() {
 
     $postID = $this->postID;
@@ -40,6 +57,11 @@ class Jumbotron {
 
   }
 
+  /**
+   * Generates button markup, or returns false if no button.
+   *
+   * @return bool|string false / button markup
+   */
   public function jumbotronButton() {
 
     $postID    = $this->postID;
@@ -67,6 +89,11 @@ class Jumbotron {
   }
 
 
+  /**
+   * File path to the hero template
+   *
+   * @return SageWrapping
+   */
   public function filePath() {
     $path     = 'templates/modules/jumbotron-base.php';
     $template = new SageWrapping( $path );
@@ -74,6 +101,13 @@ class Jumbotron {
     return $template;
   }
 
+  /**
+   * Render Jumbotron
+   *
+   * Assembles the jumbotron, sends the content to the template
+   *
+   * @return string a jumbotron
+   */
   public function renderJumbotron() {
     ob_start();
     include $this->filePath();
@@ -82,6 +116,11 @@ class Jumbotron {
     return $output;
   }
 
+  /**
+   * Output jumbotron
+   *
+   * Outputs the jumbotron to the front end, using the after_header action hook
+   */
   public function outputJumbotron() {
     $jumbotron = $this->renderJumbotron();
     echo $jumbotron;
