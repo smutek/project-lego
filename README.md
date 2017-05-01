@@ -4,6 +4,25 @@ Starter theme, built with [Sage](https://roots.io/sage/) 8.5.1 by the developmen
 
 ## Extras
 
+- Slick Carousel
+- Customizer Options
+    - Option 1
+    - Option 2
+- Social Media Nav Class  
+Call the class with `social_nav($classes)` where $classes is a string or array of css class names
+to pass to the nav.  
+Example usage:  
+  ```
+  <?php $social_args = Branding\social_nav('stack circle brand'); ?>
+  <nav class="social-nav" role="navigation">
+    <?php wp_nav_menu( $social_args ); ?>
+  </nav>
+  ```  
+  Classes are applied to the UL element, so Bootstrap list layout classes can apply here. Additional classes:  
+  - `brand` Use social media brand colors
+  - `stack square` Stack icon on a square background
+  - `stack circle` Stack icon on a circular background
+  
 
 [![Build Status](https://travis-ci.org/roots/sage.svg)](https://travis-ci.org/roots/sage)
 [![devDependency Status](https://david-dm.org/roots/sage/dev-status.svg)](https://david-dm.org/roots/sage#info=devDependencies)
