@@ -6,6 +6,7 @@
  */
 $controllers = [
   'lib/controllers/branding-controller.php', // Logos and business info
+  'lib/controllers/Jumbotron.php', // Jumbotron class
 ];
 
 foreach ($controllers as $controller) {

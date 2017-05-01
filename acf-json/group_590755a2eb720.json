@@ -1,0 +1,360 @@
+{
+    "key": "group_590755a2eb720",
+    "title": "Jumbotron",
+    "fields": [
+        {
+            "key": "field_59075809960fa",
+            "label": "Display Jumbotron",
+            "name": "display_jumbotron",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_590755d9960ef",
+            "label": "Heading",
+            "name": "jumbotron_heading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_59075653960f0",
+            "label": "Lead",
+            "name": "jumbotron_lead",
+            "type": "text",
+            "instructions": "Short, supporting line of text below the heading.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_59075673960f1",
+            "label": "Copy",
+            "name": "jumbotron_copy",
+            "type": "wysiwyg",
+            "instructions": "Short paragraph of supporting copy",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_590756d1960f2",
+            "label": "Show Button",
+            "name": "jumbotron_show_button",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_59075700960f3",
+            "label": "Button text",
+            "name": "jumbotron_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Learn More",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_59075749960f5",
+            "label": "Link Target",
+            "name": "jumbotron_link_target",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "_self": "Self",
+                "_blank": "New Tab"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "_self : Self",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_59075711960f4",
+            "label": "Link Type",
+            "name": "jumbotron_link_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "internal": "Internal",
+                "custom": "Custom"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "internal : Internal",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5907578f960f6",
+            "label": "Link",
+            "name": "jumbotron_internal_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59075711960f4",
+                        "operator": "==",
+                        "value": "internal"
+                    },
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [],
+            "taxonomy": [],
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_590757ab960f7",
+            "label": "Link",
+            "name": "jumbotron_custom_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59075711960f4",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5907599841fd7",
+            "label": "Background Image",
+            "name": "jumbotron_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Jumbotrons (hero units)",
+    "modified": 1493661349
+}

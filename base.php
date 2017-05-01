@@ -2,6 +2,10 @@
 
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
+use Roots\Sage\Controllers\Jumbotron\Jumbotron;
+
+if ( get_field( 'display_jumbotron' ))
+  new Jumbotron( get_the_ID());
 
 ?>
 
@@ -17,6 +21,7 @@ use Roots\Sage\Wrapper;
     <?php
       do_action('get_header');
       get_template_part('templates/header');
+      do_action('after_header');
     ?>
     <div class="wrap container" role="document">
       <div class="content row">
@@ -33,6 +38,7 @@ use Roots\Sage\Wrapper;
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');
+      do_action('after_footer');
       wp_footer();
     ?>
   </body>
