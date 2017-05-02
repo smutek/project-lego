@@ -8,6 +8,9 @@ namespace Roots\Sage\Controllers\BusinessInfo;
  * @return array
  */
 
+/**
+ * @return array
+ */
 function business_info() {
 
   $address1 = get_theme_mod( 'address_line_1' );
@@ -33,28 +36,43 @@ function business_info() {
 /**
  * Site copyright notice
  *
- * @return string
+ * Returns markup for copyright notice
+ * Checks for business name setting in customizer options, falls back
+ * to site name is business name not present.
+ *
+ * @param $classes string or array of css classes
+ *
+ * @return string / copyright line markup
  */
-function copyright($classes = "") {
+function copyright( $classes = "" ) {
 
   if ( ! is_array( $classes ) ) {
     $classes = [ $classes ];
   }
 
-  $classes = implode(' ', $classes);
+  $classes = implode( ' ', $classes );
 
   $businessName = get_theme_mod( 'business_name' );
 
   ! empty( $businessName ) ? $name = $businessName : $name = get_bloginfo( 'name' );
 
-  $year = date('Y');
+  $year = date( 'Y' );
 
-  $output = sprintf('<p class="%1$s">&copy; %2$s %3$s</p>', $classes, $year, $businessName);
+  $output = sprintf( '<p class="%1$s">&copy; %2$s %3$s</p>', $classes, $year, $businessName );
 
   return $output;
 }
 
-function privacy_policy( $classes = "", $target = "_self" ) {
+/**
+ * Privacy policy link
+ * Returns a link to the privacy policy page
+ * Accepts an array or string of css classes
+ *
+ * @param string $classes
+ *
+ * @return bool|string false / or link markup
+ */
+function privacy_policy( $classes = "" ) {
 
   $privacy = get_theme_mod( 'privacy_policy_page' );
 
@@ -71,13 +89,22 @@ function privacy_policy( $classes = "", $target = "_self" ) {
   $title = get_the_title( $privacy );
   $link  = get_the_permalink( $privacy );
 
-  $output = sprintf( '<a href="%1$s" class="%2$s" target="%3$s">%4$s</a>', $link, $classes, $target, $title );
+  $output = sprintf( '<a href="%1$s" class="%2$s">%3$s</a>', $link, $classes, $title );
 
   return $output;
 
 }
 
-function terms_page( $classes = "", $target = "_self" ) {
+/**
+ * Terms & Conditions  link
+ * Returns fully formed link to the terms page
+ * Accepts an array or string of css classes
+ *
+ * @param string $classes
+ *
+ * @return bool|string false / or link markup
+ */
+function terms_page( $classes = "" ) {
 
   $privacy = get_theme_mod( 'terms_page' );
 
@@ -94,7 +121,7 @@ function terms_page( $classes = "", $target = "_self" ) {
   $title = get_the_title( $privacy );
   $link  = get_the_permalink( $privacy );
 
-  $output = sprintf( '<a href="%1$s" class="%2$s" target="%3$s">%4$s</a>', $link, $classes, $target, $title );
+  $output = sprintf( '<a href="%1$s" class="%2$s">%3$s</a>', $link, $classes, $title );
 
   return $output;
 
