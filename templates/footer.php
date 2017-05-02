@@ -3,7 +3,7 @@ use Roots\Sage\Controllers\Branding;
 use Roots\Sage\Controllers\BusinessInfo;
 use Roots\Sage\Controllers\Navigation;
 $social_args = Navigation\social_nav( 'stack circle brand' );
-$footer_args = Navigation\footer_nav('nav-pills nav-justified flex-column flex-sm-row');
+$footer_args = Navigation\footer_nav('nav-pills flex-column flex-sm-row justify-content-center');
 ?>
 
 <footer class="content-info">
@@ -47,10 +47,10 @@ $footer_args = Navigation\footer_nav('nav-pills nav-justified flex-column flex-s
         </div>
       <?php endif; ?>
 
-      <div class="legal d-flex flex-column flex-sm-row">
-        <?= BusinessInfo\privacy_policy('small p-l-0 p-2'); ?>
+      <div class="legal d-flex justify-content-center flex-column flex-sm-row">
+        <?= BusinessInfo\privacy_policy('small p-2'); ?>
         <?= BusinessInfo\terms_page('small p-2'); ?>
-        <?= BusinessInfo\copyright('small ml-sm-auto p-2'); ?>
+        <?= BusinessInfo\copyright('small p-2'); ?>
       </div>
     </div>
   </div>
