@@ -7,6 +7,7 @@
 $controllers = [
   'lib/controllers/branding-controller.php', // Logos and business info
   'lib/controllers/business-info-controller.php', // Site info
+  'lib/controllers/navigation-controller.php', // Navigation controllers
   'lib/controllers/Jumbotron.php', // Jumbotron class
   'lib/controllers/Modal.php', // Base modal class
 ];

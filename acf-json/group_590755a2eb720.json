@@ -357,7 +357,20 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "15",
                 "class": "",
@@ -546,5 +559,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Jumbotrons (hero units)",
-    "modified": 1493671139
+    "modified": 1493739472
 }

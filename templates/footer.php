@@ -1,13 +1,16 @@
 <?php
 use Roots\Sage\Controllers\Branding;
-$social_args = Branding\social_nav('stack circle brand');
-$copyright = Branding\copyright();
+use Roots\Sage\Controllers\BusinessInfo;
+use Roots\Sage\Controllers\Navigation;
+$social_args = Navigation\social_nav( 'stack circle brand' );
+$footer_args = Navigation\footer_nav('nav-pills nav-justified flex-column flex-sm-row');
 ?>
+
 <footer class="content-info">
   <div class="container">
     <div class="row">
 
-      <?php if(is_active_sidebar('sidebar-footer')): ?>
+      <?php if ( is_active_sidebar( 'sidebar-footer' ) ): ?>
         <div class="col footer-widgets">
           <?php dynamic_sidebar( 'sidebar-footer' ); ?>
         </div>
@@ -18,11 +21,11 @@ $copyright = Branding\copyright();
       </div>
 
       <div class="col business-info">
-        <?php include(locate_template('templates/modules/business-info.php')); ?>
+        <?php include( locate_template( 'templates/modules/business-info.php' ) ); ?>
       </div>
 
       <?php if ( has_nav_menu( 'social_navigation' ) ) : ?>
-        <div class="col footer-social">
+        <div class="col social-nav-wrap">
           <h3>Follow Us</h3>
           <nav class="social-nav" role="navigation">
             <?php wp_nav_menu( $social_args ); ?>
@@ -33,12 +36,23 @@ $copyright = Branding\copyright();
     </div>
   </div>
 
-  <?php if($copyright) : ?>
-    <div class="lower-footer">
-      <div class="container">
-        <p><small><?= $copyright; ?></small></p>
+  <div class="lower-footer">
+    <div class="container">
+
+      <?php if ( has_nav_menu( 'footer_navigation' ) ) : ?>
+        <div class="footer-nav-wrap mt-3 mb-3">
+          <nav class="footer-nav" role="navigation">
+            <?php wp_nav_menu( $footer_args ); ?>
+          </nav>
+        </div>
+      <?php endif; ?>
+
+      <div class="legal d-flex flex-column flex-sm-row">
+        <?= BusinessInfo\privacy_policy('small p-l-0 p-2'); ?>
+        <?= BusinessInfo\terms_page('small p-2'); ?>
+        <?= BusinessInfo\copyright('small ml-sm-auto p-2'); ?>
       </div>
     </div>
-  <?php endif; ?>
+  </div>
 
 </footer>
