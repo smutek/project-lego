@@ -143,6 +143,33 @@ function theme_options( $wp_customize ) {
     'settings' => 'address_line_3',
     'type'     => 'text'
   ] );
+  /*
+  * ****** Privacy Policy  & TOC *******
+  */
+  // privacy
+  $wp_customize->add_setting( 'privacy_policy_page', [
+    'default'           => ''
+  ] );
+  $wp_customize->add_control( 'privacy_policy_page', [
+    'label'    => __( 'Privacy Policy Page', 'sage' ),
+    'description'    => __( 'Link to privacy policy page. Leave blank (- Select -) for none.', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'privacy_policy_page',
+    'type'     => 'dropdown-pages',
+    'allow_addition' => true
+  ] );
+  // terms
+  $wp_customize->add_setting( 'terms_page', [
+    'default'           => ''
+  ] );
+  $wp_customize->add_control( 'terms_page', [
+    'label'    => __( 'Terms & Conditions Page', 'sage' ),
+    'description'    => __( 'Link to Terms & Conditions page. Leave blank (- Select -) for none.', 'sage' ),
+    'section'  => 'business_info',
+    'settings' => 'terms_page',
+    'type'     => 'dropdown-pages',
+    'allow_addition' => true
+  ] );
 
   /*
   * ****** Miscellaneous Section *******

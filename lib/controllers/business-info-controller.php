@@ -25,5 +25,77 @@ function business_info() {
     'fax'      => $fax,
     'email'    => $email,
   ];
+
   return $info;
+}
+
+
+/**
+ * Site copyright notice
+ *
+ * @return string
+ */
+function copyright($classes = "") {
+
+  if ( ! is_array( $classes ) ) {
+    $classes = [ $classes ];
+  }
+
+  $classes = implode(' ', $classes);
+
+  $businessName = get_theme_mod( 'business_name' );
+
+  ! empty( $businessName ) ? $name = $businessName : $name = get_bloginfo( 'name' );
+
+  $year = date('Y');
+
+  $output = sprintf('<p class="%1$s">&copy; %2$s %3$s</p>', $classes, $year, $businessName);
+
+  return $output;
+}
+
+function privacy_policy( $classes = "", $target = "_self" ) {
+
+  $privacy = get_theme_mod( 'privacy_policy_page' );
+
+  if ( ! $privacy ) {
+    return false;
+  }
+
+  if ( ! is_array( $classes ) ) {
+    $classes = [ $classes ];
+  }
+
+  $classes = implode( ' ', $classes );
+
+  $title = get_the_title( $privacy );
+  $link  = get_the_permalink( $privacy );
+
+  $output = sprintf( '<a href="%1$s" class="%2$s" target="%3$s">%4$s</a>', $link, $classes, $target, $title );
+
+  return $output;
+
+}
+
+function terms_page( $classes = "", $target = "_self" ) {
+
+  $privacy = get_theme_mod( 'terms_page' );
+
+  if ( ! $privacy ) {
+    return false;
+  }
+
+  if ( ! is_array( $classes ) ) {
+    $classes = [ $classes ];
+  }
+
+  $classes = implode( ' ', $classes );
+
+  $title = get_the_title( $privacy );
+  $link  = get_the_permalink( $privacy );
+
+  $output = sprintf( '<a href="%1$s" class="%2$s" target="%3$s">%4$s</a>', $link, $classes, $target, $title );
+
+  return $output;
+
 }
