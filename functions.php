@@ -19,6 +19,7 @@ $sage_includes = [
   'lib/walker.php',     // Nav walker
   'lib/utils.php',      // Utility functions
   'lib/controllers.php',// Controllers
+  'lib/mobileDetect.php', // UA sniffing classes
 ];
 
 foreach ($sage_includes as $file) {
