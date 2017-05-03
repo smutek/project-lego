@@ -3,6 +3,7 @@
 namespace Roots\Sage\Controllers\Jumbotron;
 
 use Roots\Sage\Controllers\Modal\Modal;
+use Roots\Sage\Controllers\VideoModal\VideoModal;
 use function Roots\Sage\Utils\videoLink;
 use Roots\Sage\Wrapper\SageWrapping;
 
@@ -62,7 +63,17 @@ class Jumbotron {
 
       $jumbotron['button'] = $trigger;
 
-      new Modal($this->postID, 'jumbotron', $ctaButton);
+      $type = get_field( 'jumbotron_modal_type' );
+
+      switch ($type) {
+        case 'basic':
+          new Modal($this->postID, 'jumbotron', $ctaButton);
+          break;
+        case 'video':
+          new VideoModal($this->postID, 'jumbotron', false, 'jumbotron_video_link');
+          break;
+      }
+
     }
 
     $jumbotron['background'] = $background;

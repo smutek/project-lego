@@ -34,7 +34,9 @@ function videoLink( $field, $repeater = false, array $params = [] ) {
 
   foreach ( $defaults as $key => $value ) {
 
-    $params[$key] = $value;
+    if(!array_key_exists($key, $params)) {
+      $params[$key] = $value;
+    }
 
   }
 

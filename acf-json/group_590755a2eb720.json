@@ -477,7 +477,7 @@
                         "value": "1"
                     },
                     {
-                        "field": "field_59075809960fa",
+                        "field": "field_590756d1960f2",
                         "operator": "==",
                         "value": "1"
                     },
@@ -503,6 +503,45 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
+        },
+        {
+            "key": "field_590a2251009ad",
+            "label": "Video Link",
+            "name": "jumbotron_video_link",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59079b10c6344",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590796775f7f6",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
         },
         {
             "key": "field_5907976c5f7fd",
@@ -607,5 +646,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Jumbotrons (hero units)",
-    "modified": 1493758044
+    "modified": 1493836483
 }

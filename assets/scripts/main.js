@@ -19,7 +19,23 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+        // slick basic
         $('.slider').slick();
+
+
+        // stop video playback on modal close
+        // http://stackoverflow.com/a/25069916
+        $(".video-modal").on('hidden.bs.modal', function (e) {
+
+          console.log('hidden');
+
+          var id = $(this).attr('id');
+          var target = "#" + id + ".video-modal iframe";
+
+          $(target).attr("src", $(target).attr("src"));
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
