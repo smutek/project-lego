@@ -5,3 +5,6 @@ nav.navbar {
     max-width: 100%;
   }
 }
+.bg-inverse .dropdown-menu {
+  background: lighten($inverse-bg, 5%);
+}
