@@ -1,4 +1,7 @@
-<?php $modal = $this->modalContent(); ?>
+<?php
+$modal = $this->modalContent();
+$form_object = $this->formObject();
+?>
 
 <!-- Modal -->
 <div class="modal video-modal fade" id="<?= $modal['ID']; ?>" tabindex="-1" role="dialog"
@@ -12,9 +15,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9">
-          <?= $this->displayVideo(); ?>
-        </div>
+        <?php
+        gravity_form_enqueue_scripts($form_object['id'], true);
+        gravity_form($form_object['id'], false, false, false, '', true, 1);
+        ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

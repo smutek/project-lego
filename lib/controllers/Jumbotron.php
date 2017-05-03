@@ -4,6 +4,7 @@ namespace Roots\Sage\Controllers\Jumbotron;
 
 use Roots\Sage\Controllers\Modal\Modal;
 use Roots\Sage\Controllers\VideoModal\VideoModal;
+use Roots\Sage\Controllers\FormModal\FormModal;
 use function Roots\Sage\Utils\videoLink;
 use Roots\Sage\Wrapper\SageWrapping;
 
@@ -72,8 +73,10 @@ class Jumbotron {
         case 'video':
           new VideoModal($this->postID, 'jumbotron', false, 'jumbotron_video_link');
           break;
+        case 'form':
+          new FormModal($this->postID, 'jumbotron', false, 'jumbotron_select_form' );
+          break;
       }
-
     }
 
     $jumbotron['background'] = $background;

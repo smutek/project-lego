@@ -627,6 +627,45 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_590a48e9b213d",
+            "label": "Select Form",
+            "name": "jumbotron_select_form",
+            "type": "gravity_forms_field",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59079b10c6344",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590796775f7f6",
+                        "operator": "==",
+                        "value": "form"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "allow_null": 1,
+            "allow_multiple": 0
         }
     ],
     "location": [
@@ -646,5 +685,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Jumbotrons (hero units)",
-    "modified": 1493836483
+    "modified": 1493846297
 }
