@@ -8,14 +8,15 @@ namespace Roots\Sage\Nav;
  * Bootstrap 4 walker with cleaner markup for wp_nav_menu()
  * For use with Sage >= 8.5
  *
+ * Based on Soil NavWalker
+ * @url https://github.com/roots/soil
+ *
+ *
  * Walker_Nav_Menu (WordPress default) example output:
  *   <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="/">Home</a></li>
  *
  * NavWalker example output:
  *   <li class="nav-item menu-item menu-home"><a class="nav-link" href="/">Home</a></li>
- *
- * Based on Soil NavWalker
- * @see https://github.com/roots/soil
  *
  * @package Roots\Sage\Nav
  */
@@ -105,7 +106,7 @@ class NavWalker extends \Walker_Nav_Menu {
 
     if ( $element->is_subitem ) {
       foreach ( $children_elements[ $element->ID ] as $child ) {
-        if ( $child->current_item_parent || url_compare( $this->archive, $child->url ) ) {
+        if ( $child->current_item_parent || $this->url_compare( $this->archive, $child->url ) ) {
           $element->classes[] = 'active';
         }
       }
@@ -137,7 +138,7 @@ class NavWalker extends \Walker_Nav_Menu {
     if ( $this->cpt ) {
       $classes = str_replace( 'current_page_parent', '', $classes );
 
-      if ( url_compare( $this->archive, $item->url ) ) {
+      if ( $this->url_compare( $this->archive, $item->url ) ) {
         $classes[] = 'active';
       }
     }
@@ -162,6 +163,58 @@ class NavWalker extends \Walker_Nav_Menu {
 
     return array_filter( $classes );
   }
+
+  /**
+   * Make a URL relative
+   *
+   * Utility function, from soil
+   * @url https://github.com/roots/soil
+   *
+   * @param $input
+   *
+   * @return string
+   */
+  public function root_relative_url( $input ) {
+    if ( is_feed() ) {
+      return $input;
+    }
+    $url = parse_url( $input );
+    if ( ! isset( $url['host'] ) || ! isset( $url['path'] ) ) {
+      return $input;
+    }
+    $site_url = parse_url( network_home_url() );  // falls back to home_url
+    if ( ! isset( $url['scheme'] ) ) {
+      $url['scheme'] = $site_url['scheme'];
+    }
+    $hosts_match   = $site_url['host'] === $url['host'];
+    $schemes_match = $site_url['scheme'] === $url['scheme'];
+    $ports_exist   = isset( $site_url['port'] ) && isset( $url['port'] );
+    $ports_match   = ( $ports_exist ) ? $site_url['port'] === $url['port'] : true;
+    if ( $hosts_match && $schemes_match && $ports_match ) {
+      return wp_make_link_relative( $input );
+    }
+
+    return $input;
+  }
+
+  /**
+   * Compare URL against relative URL
+   *
+   * Utility function, from Soil
+   * @url https://github.com/roots/soil
+   *
+   * @param $url
+   * @param $rel
+   *
+   * @return bool
+   */
+  public function url_compare( $url, $rel ) {
+    $url = trailingslashit( $url );
+    $rel = trailingslashit( $rel );
+
+    return ( ( strcasecmp( $url, $rel ) === 0 ) || $this->root_relative_url( $url ) == $rel );
+  }
+
 }
 
 /**
@@ -194,54 +247,3 @@ function nav_menu_args( $args = '' ) {
 
 add_filter( 'wp_nav_menu_args', __NAMESPACE__ . '\\nav_menu_args' );
 add_filter( 'nav_menu_item_id', '__return_null' );
-
-/**
- * Make a URL relative
- *
- * Utility function, from soil
- * @url https://github.com/roots/soil
- *
- * @param $input
- *
- * @return string
- */
-function root_relative_url( $input ) {
-  if ( is_feed() ) {
-    return $input;
-  }
-  $url = parse_url( $input );
-  if ( ! isset( $url['host'] ) || ! isset( $url['path'] ) ) {
-    return $input;
-  }
-  $site_url = parse_url( network_home_url() );  // falls back to home_url
-  if ( ! isset( $url['scheme'] ) ) {
-    $url['scheme'] = $site_url['scheme'];
-  }
-  $hosts_match   = $site_url['host'] === $url['host'];
-  $schemes_match = $site_url['scheme'] === $url['scheme'];
-  $ports_exist   = isset( $site_url['port'] ) && isset( $url['port'] );
-  $ports_match   = ( $ports_exist ) ? $site_url['port'] === $url['port'] : true;
-  if ( $hosts_match && $schemes_match && $ports_match ) {
-    return wp_make_link_relative( $input );
-  }
-
-  return $input;
-}
-
-/**
- * Compare URL against relative URL
- *
- * Utility function, from Soil
- * @url https://github.com/roots/soil
- *
- * @param $url
- * @param $rel
- *
- * @return bool
- */
-function url_compare( $url, $rel ) {
-  $url = trailingslashit( $url );
-  $rel = trailingslashit( $rel );
-
-  return ( ( strcasecmp( $url, $rel ) === 0 ) || root_relative_url( $url ) == $rel );
-}
