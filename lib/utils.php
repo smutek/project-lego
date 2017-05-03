@@ -3,34 +3,6 @@
 namespace Roots\Sage\Utils;
 
 /**
- * Hooks a single callback to multiple tags
- */
-function add_filters( $tags, $function, $priority = 10, $accepted_args = 1 ) {
-  foreach ( (array) $tags as $tag ) {
-    add_filter( $tag, $function, $priority, $accepted_args );
-  }
-}
-
-/**
- * Display error alerts in admin panel
- */
-function alerts( $errors, $capability = 'activate_plugins' ) {
-  if ( ! did_action( 'init' ) ) {
-    return add_action( 'init', function () use ( $errors, $capability ) {
-      alerts( $errors, $capability );
-    } );
-  }
-  $alert = function ( $message ) {
-    echo '<div class="error"><p>' . $message . '</p></div>';
-  };
-  if ( call_user_func_array( 'current_user_can', (array) $capability ) ) {
-    add_action( 'admin_notices', function () use ( $alert, $errors ) {
-      array_map( $alert, (array) $errors );
-    } );
-  }
-}
-
-/**
  * oEmbed Attributes
  *
  * Add parameters to oEmbed query string. Useful for
