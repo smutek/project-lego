@@ -89,6 +89,6 @@ function probablyAPhone() {
 
 /* Change Excerpt length */
 function custom_excerpt_length( $length ) {
-  return 10;
+  return 30;
 }
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );

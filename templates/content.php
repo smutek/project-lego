@@ -1,6 +1,10 @@
 <article <?php post_class('col-4 mb-3 mt-3'); ?>>
   <div class="card">
-    <img class="card-img-top" src="holder.js/600x200">
+    <?php if(has_post_thumbnail()) : ?>
+      <?php the_post_thumbnail(); ?>
+    <?php else : ?>
+      <img class="card-img-top" src="holder.js/600x200">
+    <?php endif; ?>
     <div class="card-block">
       <header>
         <h2 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
