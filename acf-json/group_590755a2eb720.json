@@ -463,6 +463,43 @@
             "maxlength": ""
         },
         {
+            "key": "field_5907976c5f7fd",
+            "label": "Modal Launch Button Text",
+            "name": "jumbotron_modal_button_text",
+            "type": "text",
+            "instructions": "Text for the button that triggers your modal. When using the basic modal type, your primary button will appear as part of your modal.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59079b10c6344",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Launch Modal",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5907974a5f7fb",
             "label": "Modal Content",
             "name": "jumbotron_modal_content",
@@ -544,11 +581,11 @@
             "height": ""
         },
         {
-            "key": "field_5907976c5f7fd",
-            "label": "Modal Launch Button Text",
-            "name": "jumbotron_modal_button_text",
-            "type": "text",
-            "instructions": "Text for the button that triggers your modal. When using the basic modal type, your primary button will appear as part of your modal.",
+            "key": "field_590a48e9b213d",
+            "label": "Select Form",
+            "name": "jumbotron_select_form",
+            "type": "gravity_forms_field",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -558,7 +595,7 @@
                         "value": "1"
                     },
                     {
-                        "field": "field_59075809960fa",
+                        "field": "field_590756d1960f2",
                         "operator": "==",
                         "value": "1"
                     },
@@ -566,6 +603,11 @@
                         "field": "field_59079b10c6344",
                         "operator": "==",
                         "value": "1"
+                    },
+                    {
+                        "field": "field_590796775f7f6",
+                        "operator": "==",
+                        "value": "form"
                     }
                 ]
             ],
@@ -574,11 +616,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Launch Modal",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "allow_null": 1,
+            "allow_multiple": 0
         },
         {
             "key": "field_5908dbd0ac6bb",
@@ -587,7 +626,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -627,45 +674,6 @@
             },
             "default_value": "",
             "placeholder": ""
-        },
-        {
-            "key": "field_590a48e9b213d",
-            "label": "Select Form",
-            "name": "jumbotron_select_form",
-            "type": "gravity_forms_field",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_59075809960fa",
-                        "operator": "==",
-                        "value": "1"
-                    },
-                    {
-                        "field": "field_590756d1960f2",
-                        "operator": "==",
-                        "value": "1"
-                    },
-                    {
-                        "field": "field_59079b10c6344",
-                        "operator": "==",
-                        "value": "1"
-                    },
-                    {
-                        "field": "field_590796775f7f6",
-                        "operator": "==",
-                        "value": "form"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "allow_null": 1,
-            "allow_multiple": 0
         }
     ],
     "location": [
@@ -685,5 +693,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Jumbotrons (hero units)",
-    "modified": 1493846297
+    "modified": 1493906285
 }

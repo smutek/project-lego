@@ -86,3 +86,9 @@ function probablyAPhone() {
   $mobile && ! $tablet ? $probPhone = true : $probPhone = false;
   return $probPhone;
 }
+
+/* Change Excerpt length */
+function custom_excerpt_length( $length ) {
+  return 10;
+}
+add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );

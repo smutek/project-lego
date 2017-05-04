@@ -83,7 +83,7 @@ function widgets_init() {
 add_action( 'widgets_init', __NAMESPACE__ . '\\widgets_init' );
 
 /**
- * Determine which pages should NOT display the sidebar
+ * Determine which pages SHOULD display the sidebar
  */
 function display_sidebar() {
   static $display;
@@ -92,6 +92,7 @@ function display_sidebar() {
     // The sidebar WILL be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_page_template( 'template-sidebar.php' ),
+    is_singular('post'),
   ] );
 
   return apply_filters( 'sage/display_sidebar', $display );
