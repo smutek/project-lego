@@ -1,6 +1,7 @@
 <?php
 $modal = $this->modalContent();
 $form_object = $this->formObject();
+$form_info = $this->formInfo();
 ?>
 
 <!-- Modal -->
@@ -15,10 +16,20 @@ $form_object = $this->formObject();
         </button>
       </div>
       <div class="modal-body">
-        <?php
-        gravity_form_enqueue_scripts($form_object['id'], true);
-        gravity_form($form_object['id'], false, false, false, '', true, 1);
-        ?>
+        <?php if($form_info['title']) : ?>
+          <h6><?= $form_info['title']; ?></h6>
+        <?php endif; ?>
+        <?php if($form_info['description']) : ?>
+          <div class="modal-form-description">
+            <?= $form_info['description']; ?>
+          </div>
+        <?php endif; ?>
+        <div class="modal-form">
+          <?php
+          gravity_form_enqueue_scripts($form_object['id'], true);
+          gravity_form($form_object['id'], false, false, false, '', true, 1);
+          ?>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

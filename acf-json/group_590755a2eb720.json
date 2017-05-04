@@ -687,7 +687,7 @@
         {
             "key": "field_590a2251009ad",
             "label": "Video Link",
-            "name": "jumbotron_video_link",
+            "name": "jumbotron_modal_video_link",
             "type": "oembed",
             "instructions": "",
             "required": 0,
@@ -726,7 +726,7 @@
         {
             "key": "field_590a48e9b213d",
             "label": "Select Form",
-            "name": "jumbotron_select_form",
+            "name": "jumbotron_modal_select_form",
             "type": "gravity_forms_field",
             "instructions": "",
             "required": 0,
@@ -761,6 +761,90 @@
             },
             "allow_null": 1,
             "allow_multiple": 0
+        },
+        {
+            "key": "field_590b48374745a",
+            "label": "Form Title",
+            "name": "jumbotron_modal_form_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59079b10c6344",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590796775f7f6",
+                        "operator": "==",
+                        "value": "form"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_590b48464745b",
+            "label": "Form Description",
+            "name": "jumbotron_modal_form_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59075809960fa",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590756d1960f2",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_59079b10c6344",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_590796775f7f6",
+                        "operator": "==",
+                        "value": "form"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "wpautop"
         }
     ],
     "location": [
@@ -780,5 +864,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Jumbotrons (hero units)",
-    "modified": 1493911373
+    "modified": 1493912751
 }

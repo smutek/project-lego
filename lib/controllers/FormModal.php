@@ -4,11 +4,11 @@ namespace Roots\Sage\Controllers\FormModal;
 
 use Roots\Sage\Controllers\Modal\Modal;
 use Roots\Sage\Wrapper\SageWrapping;
+
 /**
  * Class FormModal
  * @package Roots\Sage\Controllers\FormModal
  */
-
 class FormModal extends Modal {
 
   /**
@@ -29,10 +29,30 @@ class FormModal extends Modal {
 
   public function formObject() {
 
-    $formObject = get_field( $this->formField, $this->postID);
+    $formObject = get_field( $this->formField, $this->postID );
 
     return $formObject;
 
+  }
+
+  /**
+   * Checks for and returns form title and description
+   * (*note - via ACF fields, not the gravity forms title and description)
+   * @return array
+   */
+  public function formInfo() {
+
+    $formInfo = [];
+
+    $field = $this->field;
+
+    $title = $field . '_form_title';
+    $description = $field . '_form_description';
+
+    $formInfo['title']       = get_field( $title, $this->postID );
+    $formInfo['description'] = get_field( $description, $this->postID );
+
+    return $formInfo;
   }
 
   /**
