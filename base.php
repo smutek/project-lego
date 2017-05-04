@@ -3,10 +3,14 @@
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 use Roots\Sage\Controllers\Jumbotron\Jumbotron;
+use Roots\Sage\Controllers\Slider\Slider;
 
+$ID = get_the_ID();
 if ( get_field( 'display_jumbotron' ))
-  new Jumbotron( get_the_ID());
+  new Jumbotron( $ID );
 
+if ( get_field( 'slider_show_slider' ))
+  new Slider( $ID);
 ?>
 
 <!doctype html>

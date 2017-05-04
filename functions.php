@@ -19,7 +19,8 @@ $sage_includes = [
   'lib/walker.php',     // Nav walker
   'lib/utils.php',      // Utility functions
   'lib/ACF_Forms.php',      // ACF Gravity Forms field
-  'lib/controllers.php',// Controllers
+  'lib/controllers.php',// Controller loader
+  'lib/custom-types.php',// CPT & Taxonomy loader
   'lib/mobileDetect.php', // UA sniffing classes
 ];
 

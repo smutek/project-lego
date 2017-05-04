@@ -23,7 +23,7 @@ class Jumbotron {
 
     $this->postID = $postID;
 
-    add_action( 'after_header', [ $this, 'outputJumbotron' ] );
+    add_action( 'after_header', [ $this, 'outputJumbotron' ], 10 );
 
   }
 

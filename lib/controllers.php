@@ -10,8 +10,9 @@ $controllers = [
   'lib/controllers/navigation-controller.php', // Navigation controllers
   'lib/controllers/Jumbotron.php', // Jumbotron class
   'lib/controllers/Modal.php', // Base modal class
-  'lib/controllers/VideoModal.php', // Base modal class
-  'lib/controllers/FormModal.php', // Base modal class
+  'lib/controllers/VideoModal.php', // Video modal class extends Modal
+  'lib/controllers/FormModal.php', // Form modal class extends Modal
+  'lib/controllers/Slider.php', // Base slider class
 ];
 
 foreach ( $controllers as $controller ) {
