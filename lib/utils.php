@@ -23,7 +23,7 @@ function videoLink( $field, $repeater = false, array $params = [] ) {
   global $post;
   // get current post ID
   $id = $post->ID;
-
+  // set of default params
   $defaults = array(
     'rel'      => 0,
     'title'    => 0,
@@ -31,7 +31,8 @@ function videoLink( $field, $repeater = false, array $params = [] ) {
     'portrait' => 0,
     'autoplay' => 'true'
   );
-
+  // Check if defaults have been passed in via function args,
+  // if not then add them to params array
   foreach ( $defaults as $key => $value ) {
 
     if(!array_key_exists($key, $params)) {
