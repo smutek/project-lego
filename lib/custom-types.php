@@ -6,7 +6,9 @@
  */
 $custom_types = [
   'lib/post-types/slide.php', // Slide CPT
-  'lib/taxonomies/slide-type.php', // Slide taxonomy
+  'lib/taxonomies/slide_taxonomy.php', // Slide taxonomy
+  'lib/post-types/team.php', // Team CPT
+  'lib/taxonomies/team_taxonomy.php', // Team taxonomy
 ];
 
 foreach ( $custom_types as $custom_type ) {
