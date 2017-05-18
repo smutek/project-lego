@@ -21,7 +21,10 @@
         // JavaScript to be fired on all pages
 
         // slick basic
-        $('.slider').slick();
+        $('.slider').slick({
+          autoplay: true,
+          dots: true
+        });
 
 
         // stop video playback on modal close

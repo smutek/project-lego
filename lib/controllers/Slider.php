@@ -77,26 +77,13 @@ class Slider {
 
         wp_reset_postdata(); // reset $post object
 
-        $slideClasses = 'carousel-item';
-        $indicatorClasses = 'carousel-indicator';
-
-        if( $count === 0) {
-          $slideClasses .= " active";
-          $indicatorClasses .= " active";
-        }
-
-        $slide['classes'] = $slideClasses;
-
-        $indicator = sprintf('<li data-target="#%1$s" data-slide-to="%2$s" class="%3$s"></li>', $slider['ID'], $count, $indicatorClasses);
-
-        $indicators[] = $indicator;
         $slides[] = $slide;
 
       endif; // end post object
       $count ++;
 
     endwhile;
-    $slider['indicators'] = $indicators;
+
     $slider['slides'] = $slides;
 
     endif;
