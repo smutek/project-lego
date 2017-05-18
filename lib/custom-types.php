@@ -9,6 +9,10 @@ $custom_types = [
   'lib/taxonomies/slide_taxonomy.php', // Slide taxonomy
   'lib/post-types/team.php', // Team CPT
   'lib/taxonomies/team_taxonomy.php', // Team taxonomy
+  'lib/post-types/career.php', // Career CPT
+  'lib/taxonomies/career_taxonomy.php', // Career taxonomy
+  'lib/post-types/case-study.php', // Career CPT
+  'lib/post-types/testimonial.php', // Career CPT
 ];
 
 foreach ( $custom_types as $custom_type ) {
