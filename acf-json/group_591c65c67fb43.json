@@ -1,13 +1,134 @@
 {
     "key": "group_591c65c67fb43",
     "title": "Layouts",
-    "fields": false,
+    "fields": [
+        {
+            "key": "field_591c672bd6733",
+            "label": "Content Sections",
+            "name": "content_sections",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "591c674508a47": {
+                    "key": "591c674508a47",
+                    "name": "css3_columns",
+                    "label": "CSS3 Columns",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_591c6c1cce28e",
+                            "label": "Number Of Columns",
+                            "name": "css3_columns_number_of_columns",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 2,
+                            "max": 12,
+                            "step": ""
+                        },
+                        {
+                            "key": "field_591c6c5bce28f",
+                            "label": "Section Title",
+                            "name": "css3_columns_section_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "75",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_591c6c6bce290",
+                            "label": "Content",
+                            "name": "css3_columns_content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5932d26ac267c": {
+                    "key": "5932d26ac267c",
+                    "name": "layout_post_types",
+                    "label": "Post Type",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5932d27fc267d",
+                            "label": "Post Type",
+                            "name": "layout_post_type",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": [],
+                            "default_value": [],
+                            "allow_null": 1,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "array",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Section",
+            "min": "",
+            "max": ""
+        }
+    ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "page"
+                "value": "template-home.php"
             }
         ]
     ],
@@ -16,8 +137,19 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "format",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1495033301
+    "modified": 1496505814
 }

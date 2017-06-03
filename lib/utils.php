@@ -35,8 +35,8 @@ function videoLink( $field, $repeater = false, array $params = [] ) {
   // if not then add them to params array
   foreach ( $defaults as $key => $value ) {
 
-    if(!array_key_exists($key, $params)) {
-      $params[$key] = $value;
+    if ( ! array_key_exists( $key, $params ) ) {
+      $params[ $key ] = $value;
     }
 
   }
@@ -55,6 +55,7 @@ function videoLink( $field, $repeater = false, array $params = [] ) {
 
   $new_src   = add_query_arg( $params, $src );
   $videoLink = str_replace( $src, $new_src, $videoFrame );
+
   return $videoLink;
 }
 
@@ -75,8 +76,9 @@ function videoLink( $field, $repeater = false, array $params = [] ) {
  */
 function probablyAPhone() {
 
-  if(!class_exists(\Mobile_Detect::class))
+  if ( ! class_exists( \Mobile_Detect::class ) ) {
     return false;
+  }
 
   // initiate the class
   $detect = new \Mobile_Detect();
@@ -84,6 +86,7 @@ function probablyAPhone() {
   $detect->isMobile() ? $mobile = true : $mobile = false;
   $detect->isTablet() ? $tablet = true : $tablet = false;
   $mobile && ! $tablet ? $probPhone = true : $probPhone = false;
+
   return $probPhone;
 }
 
@@ -91,4 +94,58 @@ function probablyAPhone() {
 function custom_excerpt_length( $length ) {
   return 30;
 }
+
 add_filter( 'excerpt_length', __NAMESPACE__ . '\\custom_excerpt_length', 999 );
+
+
+/**
+ * Populate post type choices
+ *
+ * Dynamically populate ACF select field for home page layouts
+ * Automatically fill in acf select field on home page with the
+ * currently available post types. Use get_post_types to bring
+ * back post type objects, then loop through and pull out the
+ * name and label, pass these to the ACF select field as
+ * value : label pair.
+ *
+ * @see https://codex.wordpress.org/Function_Reference/get_post_types
+ * @see https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
+ * @see https://www.advancedcustomfields.com/resources/select/
+ *
+ * @param $field
+ *
+ * @return mixed
+ */
+function acf_layout_post_type_choices( $field ) {
+
+  // reset choices
+  $field['choices'] = [];
+
+  // add post types to exclude
+  $exclude = [
+    'attachment',
+    'revision',
+    'nav_menu_item',
+    'custom_css',
+    'customize_changeset',
+    'acf-field-group'
+  ];
+  // get available public post types, return objects
+  foreach ( get_post_types( [ 'public' => true ], 'objects' ) as $post_type ) {
+    // post type name = ACF value
+    $value = $post_type->name;
+    // if the post type is not in the exclude array
+    if ( ! in_array( $value, $exclude ) ) {
+
+      // post type label = ACF label
+      $label = $post_type->label;
+      // add the value : label pair to the choices array
+      $field['choices'][ $value ] = $label;
+    }
+  }
+
+  // return the field
+  return $field;
+}
+
+add_filter( 'acf/load_field/name=layout_post_type', __NAMESPACE__ . '\\acf_layout_post_type_choices' );

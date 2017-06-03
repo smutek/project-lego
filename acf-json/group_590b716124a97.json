@@ -113,6 +113,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-home.php"
             }
         ]
     ],
@@ -124,5 +129,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Fields for an image slider",
-    "modified": 1493923268
+    "modified": 1496502740
 }
