@@ -1,32 +1,32 @@
 <?php
+use Roots\Sage\Controllers\HomePage;
 
-// check if the flexible content field has rows of data
-if ( have_rows( 'content_sections' ) ):
+$sections = HomePage\home_sections();
 
-  // loop through the rows of data
-  while ( have_rows( 'content_sections' ) ) : the_row();
+foreach ( $sections as $section ):
 
-    if ( get_row_layout() == 'layout_post_types' ):
+  ?>
 
-      $type = get_sub_field( 'layout_post_type' );
+  <section class="home-section">
+    <h2><?= $section['title']; ?></h2>
+    <div class="row">
+    <?php foreach ( $section['posts'] as $post ): ?>
+      <div class="col-sm-<?= $section['col']; ?>">
+        <div class="card" style="width: 20rem;">
+          <?php if($post['thumbnail']): ?>
+            <?= $post['thumbnail']; ?>
+          <?php endif; ?>
+          <div class="card-block">
+            <h3 class="card-title"><?= $post['title']; ?></h3>
+            <p class="card-text"><?= $post['excerpt']; ?></p>
+            <a href="<?= $post['permalink']; ?>" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+  </section>
 
-      echo $type['label'];
-      echo $type['value'];
-
-    elseif ( get_row_layout() == 'foo' ):
-
-    endif;
-
-  endwhile;
-
-else :
-
-  // no layouts found
-
-endif;
+<?php endforeach; // end sections
 
 
-?>
-
-<?php the_content(); ?>
-<?php wp_link_pages( [ 'before' => '<nav class="page-nav"><p>' . __( 'Pages:', 'sage' ), 'after' => '</p></nav>' ] ); ?>
