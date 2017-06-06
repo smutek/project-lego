@@ -92,6 +92,52 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5936be17c8446",
+                            "label": "Hide Title",
+                            "name": "post_type_hide_section_title",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5936bde8c8445",
+                            "label": "Section Title",
+                            "name": "post_type_section_title",
+                            "type": "text",
+                            "instructions": "Defaults to post type name if left blank.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5936be17c8446",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "85",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_5932d27fc267d",
                             "label": "Post Type",
                             "name": "layout_post_type",
@@ -200,5 +246,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1496527784
+    "modified": 1496760675
 }

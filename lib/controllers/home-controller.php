@@ -20,10 +20,21 @@ function home_sections() {
 
         $selection = get_sub_field( 'layout_post_type' );
 
-        // todo-jimmy add option to customize title then fall back to post type name
-        $section['title']  = $selection['label'];
+        // Option to hide the title
+        if(get_sub_field('post_type_hide_section_title')) {
+          $section['title'] = false;
+        } else {
+          // if showing title, but no title entered
+          if(get_sub_field('post_type_section_title') === "") {
+            // show the post type name
+            $section['title']  = $selection['label'];
+          } else {
+            // otherwise show the entered title
+            $section['title'] = get_sub_field('post_type_section_title');
+          }
+        }
 
-        $post_type_name = $selection['name'];
+        $post_type_name = $selection['value'];
         $num_posts       = get_sub_field( 'layout_number_of_posts' );
         $num_columns     = get_sub_field( 'layout_number_of_columns' );
 
@@ -61,7 +72,7 @@ function home_sections() {
 
             $post['title']     = get_the_title();
             $post['excerpt']   = get_the_excerpt();
-            $post['thumbnail'] = get_the_post_thumbnail('full', ['class' => 'card-img-top']);
+            $post['thumbnail'] = get_the_post_thumbnail('', 'full', ['class' => 'card-img-top']);
             $post['permalink'] = get_the_permalink();
 
             $posts[] = $post;

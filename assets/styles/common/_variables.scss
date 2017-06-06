@@ -37,9 +37,6 @@
 // Image thumbnails
 // Figures
 // Breadcrumbs
-// Carousel
-// Close
-// Code
 
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
@@ -918,48 +915,9 @@ $breadcrumb-active-color:       $gray-light;
 $breadcrumb-divider:            "/";
 
 
-// Carousel
-
-$carousel-control-color:                      $white;
-$carousel-control-width:                      15%;
-$carousel-control-opacity:                    .5;
-
-$carousel-indicator-width:                    30px;
-$carousel-indicator-height:                   3px;
-$carousel-indicator-spacer:                   3px;
-$carousel-indicator-active-bg:                $white;
-
-$carousel-caption-width:                      70%;
-$carousel-caption-color:                      $white;
-
-$carousel-control-icon-width:                 20px;
-
-$carousel-control-prev-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23");
-$carousel-control-next-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23");
-
-$carousel-transition:           transform .6s ease-in-out;
-
-
 // Close
 
 $close-font-size:             $font-size-base * 1.5;
 $close-font-weight:           $font-weight-bold;
 $close-color:                 $black;
 $close-text-shadow:           0 1px 0 $white;
-
-
-// Code
-
-$code-font-size:              90%;
-$code-padding-x:              .4rem;
-$code-padding-y:              .2rem;
-$code-color:                  #bd4147;
-$code-bg:                     $gray-lightest;
-
-$kbd-color:                   $white;
-$kbd-bg:                      $gray-dark;
-
-$pre-bg:                      $gray-lightest;
-$pre-color:                   $gray-dark;
-$pre-border-color:            #ccc;
-$pre-scrollable-max-height:   340px;

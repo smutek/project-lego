@@ -11,8 +11,8 @@ $custom_types = [
   'lib/taxonomies/team_taxonomy.php', // Team taxonomy
   'lib/post-types/career.php', // Career CPT
   'lib/taxonomies/career_taxonomy.php', // Career taxonomy
-  'lib/post-types/case-study.php', // Career CPT
-  'lib/post-types/testimonial.php', // Career CPT
+  'lib/post-types/case-study.php', // Case Study CPT
+  'lib/post-types/testimonial.php', // Testimonials CPT
 ];
 
 foreach ( $custom_types as $custom_type ) {

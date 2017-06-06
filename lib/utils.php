@@ -130,12 +130,12 @@ function acf_layout_post_type_choices( $field ) {
     'customize_changeset',
     'acf-field-group'
   ];
-  // todo-jimmy also exclude post types with no posts
 
   // get available public post types, return objects
   foreach ( get_post_types( [ 'public' => true ], 'objects' ) as $post_type ) {
     // post type name = ACF value
     $value = $post_type->name;
+
     // if the post type is not in the exclude array
     if ( ! in_array( $value, $exclude ) ) {
 
