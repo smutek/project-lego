@@ -1,16 +1,1 @@
-@include media-breakpoint-down(sm) {
-  .container {
-    width: 100%;
-  }
-}
-.wrap {
-  padding-top: 2rem;
-}
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
+
