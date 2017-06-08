@@ -3,9 +3,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only"><?= __( 'Toggle navigation', 'sage' ); ?></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
       <?php the_custom_logo(); ?>
     </div>

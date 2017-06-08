@@ -1,0 +1,18 @@
+// Use these mixins to quickly build button styles
+
+// Button variants
+// @include button-variant($color, $background, $border)
+// Example use:
+//  .btn-example {
+//    @include button-variant($white, $gray-dark, transparent);
+//  }
+// markup: <a class="btn btn-example" ...>
+
+// Button sizes
+// Same as above, except controls button sizing
+// Example use:
+//  .btn-huge {
+//    @include button-size(20px, 50px, 66px, 2, 0)
+//  }
+// markup: <a class="btn btn-huge btn-example" ...>
+// @include button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius)

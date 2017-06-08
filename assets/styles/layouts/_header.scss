@@ -1,8 +1,14 @@
 header.navbar {
   .navbar-brand img {
-    height: ($navbar-height - ($navbar-padding-vertical * 2));
+    height: ($navbar-height - ($navbar-padding-vertical));
+    margin-top: -($navbar-padding-vertical/2  );
     width: auto;
     max-width: 100%;
+  }
+  .navbar-toggle {
+    i {
+      color: $white;
+    }
   }
 }
 .bg-inverse .dropdown-menu {
