@@ -1,6 +1,6 @@
-nav.navbar {
+header.navbar {
   .navbar-brand img {
-    height: 75px;
+    height: ($navbar-height - ($navbar-padding-vertical * 2));
     width: auto;
     max-width: 100%;
   }

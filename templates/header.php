@@ -1,20 +1,23 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<header class="banner navbar navbar-inverse navbar-static-top" role="banner">
   <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only"><?= __( 'Toggle navigation', 'sage' ); ?></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <?php the_custom_logo(); ?>
+    </div>
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <?php the_custom_logo(); ?>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav class="collapse navbar-collapse" role="navigation">
       <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'navbar-nav mr-auto']);
+      if ( has_nav_menu( 'primary_navigation' ) ) :
+        wp_nav_menu( [ 'theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav' ] );
       endif;
       ?>
       <?php get_search_form(); ?>
-    </div>
-
+    </nav>
   </div>
-</nav>
+</header>

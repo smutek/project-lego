@@ -7,16 +7,6 @@ namespace Roots\Sage\Controllers\Branding;
  *
  * Use native WordPress site logo with custom (bootstrap friendly) markup
  * Falls back to text title if logo is not set.
- *
- * @param $html
- *
- * @return string
- */
-/**
- * @param $html
- *
- * @return string
- */
 /**
  * @param $html
  *
@@ -30,7 +20,7 @@ function site_brand( $html ) {
   // Grab the home URL
   $home = esc_url( home_url( '/' ) );
   // Class for the link
-  $class = 'navbar-brand';
+  $class = 'navbar-brand foo';
   // Set anchor content to $title
   $content = $title;
   // Check if there is a custom logo set in customizer options...
