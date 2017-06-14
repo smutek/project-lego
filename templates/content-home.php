@@ -19,7 +19,7 @@ foreach ( $sections as $section ):
             <div class="caption">
               <h3 class="card-title"><?= $post['title']; ?></h3>
               <p class="card-text"><?= $post['excerpt']; ?></p>
-              <a href="<?= $post['permalink']; ?>" class="btn btn-example">Read More</a>
+              <a href="<?= $post['permalink']; ?>" class="btn btn-primary">Read More</a>
             </div>
           </div>
         </div>

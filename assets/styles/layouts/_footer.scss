@@ -1,9 +1,36 @@
 .content-info {
-  @extend .bg-inverse;
+  background: $navbar-inverse-bg;
   color: $white;
   padding: $jumbotron-padding 0;
 
   .footer-logo {
     width: 150px;
+  }
+
+  #menu-social {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .lower-footer {
+    margin-top: $padding-large-vertical;
+  }
+  .footer-nav {
+    .nav {
+      margin-left: -15px;
+    }
+    li > a {
+      background: transparent;
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+  .legal {
+    text-align: right;
+    a,
+    p {
+      display: inline-block;
+      padding: 10px 15px;
+    }
   }
 }
