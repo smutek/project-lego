@@ -22,7 +22,7 @@
 
         // slick basic
         $('.slider').slick({
-          autoplay: true,
+          autoplay: false,
           dots: true
         });
 

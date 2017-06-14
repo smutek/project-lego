@@ -10,22 +10,20 @@ foreach ( $sections as $section ):
   <section class="home-section">
     <h2><?= $section['title']; ?></h2>
     <div class="row">
-      <div class="card-deck">
-        <?php foreach ( $section['posts'] as $post ): ?>
-          <div class="col-sm-<?= $section['col']; ?>">
-            <div class="card">
-              <?php if($post['thumbnail']): ?>
-                <?= $post['thumbnail']; ?>
-              <?php endif; ?>
-              <div class="card-block">
-                <h3 class="card-title"><?= $post['title']; ?></h3>
-                <p class="card-text"><?= $post['excerpt']; ?></p>
-                <a href="<?= $post['permalink']; ?>" class="btn btn-primary">Read More</a>
-              </div>
+      <?php foreach ( $section['posts'] as $post ): ?>
+        <div class="col-sm-<?= $section['col']; ?>">
+          <div class="thumbnail">
+            <?php if ( $post['thumbnail'] ): ?>
+              <?= $post['thumbnail']; ?>
+            <?php endif; ?>
+            <div class="caption">
+              <h3 class="card-title"><?= $post['title']; ?></h3>
+              <p class="card-text"><?= $post['excerpt']; ?></p>
+              <a href="<?= $post['permalink']; ?>" class="btn btn-primary">Read More</a>
             </div>
           </div>
-        <?php endforeach; ?>
-      </div>
+        </div>
+      <?php endforeach; ?>
     </div>
   </section>
 

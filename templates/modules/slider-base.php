@@ -3,20 +3,20 @@
   <div class="container">
 
     <?php if ( $slider['heading'] ) : ?>
-      <h2 class="display-3 text-center"><?= $slider['heading']; ?></h2>
+      <h2 class="text-center"><?= $slider['heading']; ?></h2>
     <?php endif; ?>
 
     <div id="<?= $slider['ID']; ?>" class="slider-wrap">
 
-      <ul class="slider list-unstyled" role="listbox">
+      <ul class="slider" role="listbox">
         <?php foreach ( $slider['slides'] as $slide ) : ?>
-          <li class="carousel-item">
+          <li class="slide-item">
 
-            <img class="d-block img-fluid" src="<?= $slide['url']; ?>" alt="<?= $slide['alt']; ?>">
+            <img class="img-responsive" src="<?= $slide['url']; ?>" alt="<?= $slide['alt']; ?>">
 
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <?php if ( $slide['title'] ) : ?>
-                <h3 class="lead"><?= $slide['title']; ?></h3>
+                <h3 class="slide-lead"><?= $slide['title']; ?></h3>
               <?php endif; ?>
 
               <?php if ( $slide['lead'] ) : ?>
@@ -24,7 +24,7 @@
               <?php endif; ?>
 
               <?php if ( $slide['content'] ): ?>
-                <hr class="my-4">
+                <hr>
                 <div class="slide-content">
                   <?= $slide['content']; ?>
                 </div>

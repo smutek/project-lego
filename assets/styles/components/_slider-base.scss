@@ -154,3 +154,12 @@ $slick-opacity-not-active: 0.25;
     }
   }
 }
+
+.slider {
+  .slide-item {
+    position: relative;
+  }
+  .carousel-caption {
+    max-width: 100%;
+  }
+}

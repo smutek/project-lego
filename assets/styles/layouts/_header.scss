@@ -1,10 +1,16 @@
-nav.navbar {
+header.navbar {
   .navbar-brand img {
-    height: 75px;
+    height: ($navbar-height - ($navbar-padding-vertical));
+    margin-top: -($navbar-padding-vertical/2  );
     width: auto;
     max-width: 100%;
   }
+  .navbar-toggle {
+    i {
+      color: $white;
+    }
+  }
 }
 .bg-inverse .dropdown-menu {
-  background: lighten($inverse-bg, 5%);
+  background: lighten($navbar-inverse-bg, 5%);
 }

@@ -1,4 +1,4 @@
-<article <?php post_class('col-4 mb-3 mt-3'); ?>>
+<article <?php post_class('col-sm-4'); ?>>
   <div class="card">
     <?php if(has_post_thumbnail()) : ?>
       <?php the_post_thumbnail(); ?>
